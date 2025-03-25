@@ -290,21 +290,55 @@
 </section>
 
 <section id="project">
-    <div class="container text-white">
-        <div class="row">
-            <div class="col-12 mb-5">
-                <h1>Project Saya</h1>
+    <style>
+        .project-card {
+            background: #22243d;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.05);
+        }
+
+        .project-description {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .project-description {
+                text-align: left;
+            }
+        }
+    </style>
+    <div class="container text-white">
+        <div class="row justify-content-center">
+            <div class="col-12 mb-4">
+                <h1>Project Saya</h1>
             </div>
-            <div class="col-12">
-                <div class="card">
-                    <img src="image/project.jpg" alt="" >
+
+            <div class="col-lg-8">
+                <div class="project-card">
+                    <a href="https://pbl.polibatam.ac.id/pamerin/detail.php?title=aplikasi-pencatatan-stok-bahan-baku-berbasis-web&id=MjU1NA==&ta=NQ==&id_tim=MzMxNg==" target="_blank"><img src="image/project1.png" alt="Project Image" class="project-image"></a>
+                    <div class="project-description">
+                        <h4>Website Pengelolaan Stok Bahan Baku</h4>
+                        <p>"Aplikasi Pencatatan Stok Bahan Baku Berbasis Web adalah solusi digital yang dirancang untuk membantu bisnis dalam mengelola persediaan bahan baku secara efisien dan terorganisir. Aplikasi ini memungkinkan pengguna untuk mencatat, memantau, dan mengelola stok bahan baku dari mana saja dengan akses internet."</p>
+                    </div>
                 </div>
-            
-            </div>
-            <div class="col-12 mt-5">
-                <h4>Website Pengelolaan Stok Bahan Baku</h4>
-                <p>"Aplikasi Pencatatan Stok Bahan Baku Berbasis Web adalah solusi digital yang dirancang untuk membantu bisnis dalam mengelola persediaan bahan baku secara efisien dan terorganisir. Aplikasi ini memungkinkan pengguna untuk mencatat, memantau, dan mengelola stok bahan baku dari mana saja dengan akses internet."</p>
             </div>
         </div>
     </div>
