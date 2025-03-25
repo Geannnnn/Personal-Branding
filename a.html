@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.5s ease-in-out;
+            border-radius: 10px;
+        }
+
+        /* Dari Dalam Keluar (Scale Up) */
+        .scale-up:hover {
+            transform: scale(1.2);
+        }
+
+        /* Dari Luar Masuk (Scale Down) */
+        .scale-down:hover {
+            transform: scale(0.8);
+        }
+
+        /* Dari Kiri ke Kanan */
+        .left-to-right:hover {
+            transform: translateX(50px);
+        }
+
+        /* Dari Kanan ke Kiri */
+        .right-to-left:hover {
+            transform: translateX(-50px);
+        }
+
+        /* Dari Atas ke Bawah */
+        .top-to-bottom:hover {
+            transform: translateY(50px);
+        }
+
+        /* Dari Bawah ke Atas */
+        .bottom-to-top:hover {
+            transform: translateY(-50px);
+        }
+
+        /* Opacity (Muncul Perlahan) */
+        .fade:hover {
+            opacity: 0.3;
+        }
+
+        /* Rotate (Putaran) */
+        .rotate:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Kombinasi Semua */
+        .combo:hover {
+            transform: translateX(30px) translateY(-30px) scale(1.2) rotate(45deg);
+            opacity: 0.7;
+            background-color: #ff4b2b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box scale-up">Scale Up</div>
+    </div>
+
+    <div class="container">
+        <div class="box scale-down">Scale Down</div>
+    </div>
+
+    <div class="container">
+        <div class="box left-to-right">Left ➡</div>
+    </div>
+
+    <div class="container">
+        <div class="box right-to-left">⬅ Right</div>
+    </div>
+
+    <div class="container">
+        <div class="box top-to-bottom">Top ⬇</div>
+    </div>
+
+    <div class="container">
+        <div class="box bottom-to-top">⬆ Bottom</div>
+    </div>
+
+    <div class="container">
+        <div class="box fade">Fade</div>
+    </div>
+
+    <div class="container">
+        <div class="box rotate">Rotate</div>
+    </div>
+
+    <div class="container">
+        <div class="box combo">Combo</div>
+    </div>
+
+</body>
+</html>

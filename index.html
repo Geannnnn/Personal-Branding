@@ -29,13 +29,57 @@
         background-color: rgba(26, 24, 22, 0.85);
     }
 
-    #home{
+    #home {
         min-height: 100vh;
         display: flex;
         align-items: center;
         position: relative;
         text-align: center;
+        background: linear-gradient(to right, #101828, #1a202c); /* Warna background */
+        overflow: hidden;
+        opacity: 0; /* Awalnya tidak terlihat */
+        transform: translateY(100px); /* Awalnya turun ke bawah */
+        transition: transform 0.8s ease-out, opacity 0.8s ease-out;
     }
+
+    #home .container {
+        transform: translateY(100px);
+        opacity: 0;
+        transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    }
+
+    #home.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    #home.show .container {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    
+    #home h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    #home p {
+        font-size: 1.1rem;
+        color: #ddd;
+    }
+
+    .meimage {
+        border-radius: 50%;
+        border: 4px solid #fff;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .meimage:hover {
+        transform: scale(1.1);
+    }
+
 
     #about {
         min-height: 100vh;
@@ -64,15 +108,6 @@
         padding: 30px 0;
     }
 
-    #contact .container {
-        margin-top: 5%;
-    }
-    .contact .info-wrap {
-        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        border-radius: 20px;
-        margin-bottom: 20px;
-    }
 
     .navbar {
         position: absolute;
@@ -100,26 +135,21 @@
         transition: color 0.3s;
     }
 
+    .meimage {
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
 
-    .btn-outline-warning {
-        border-color: #ffc107;
-        border-radius: 20px;
-        margin: 0 0 0 20px;
-        padding: 10px 60px;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 1px;
-        transition: 0.3s;
-        white-space: nowrap;
-        transition: all 0.2s;
-    }
+    input , #email, #message{
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+        border-radius: 25px;
+    }   
 
-    .btn-outline-warning:hover {
-        background-color: #ffc107;
-        border-color: #ffc107;
-        cursor: pointer;
-        color: #fff!important;
-    }
     
     .navbar-nav a:hover,
     .navbar-nav a.active
@@ -129,9 +159,9 @@
 
 
     .menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
     }
 
     .bar {
@@ -144,55 +174,95 @@
         display: none;
     }
 
-    
-
-    section #home,#about,#service {
+    section #home,#about,#project {
         min-height: 100vh;
     }
 
+    button {
+        border-radius: 20px;
+        border: 1px solid #101828;
+        background-color: #ffffff;
+        color: #101828;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 14px 50px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in, background-color 0.3s, color 0.3s;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+    }
+    button:active {
+        transform: scale(0.95);
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button:hover {
+        background-color: #101828;
+        color: #ffffff;
+    }
+
+
 
     @media (max-width: 767px) {
-    .navbar-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 68px;
-        left: 0px;
-        right: 0px;
-        background-color: rgba(26, 24, 22, 0.3);
-        padding: 10px 0;
-        text-align: center;
-        z-index: 1000;
-    }
+        .navbar-nav {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            top: 68px;
+            left: 0px;
+            right: 0px;
+            background-color: rgba(26, 24, 22, 0.3);
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
 
-    .navbar-nav.show {
-        display: flex;
-        flex-direction: column;
-    }
+        button {
+            font-size: 12px;
+            padding: 12px 35px;
+        }
 
-    .menu-icon {
-        display: flex;
-    }
+        .navbar-nav.show {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .navbar-nav .navbar-item {
-        margin: 10px 0;
-    }
+        .menu-icon {
+            display: flex;
+        }
 
-    .nav-items {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
+        .navbar-nav .navbar-item {
+            margin: 10px 0;
+        }
+
+        .nav-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
 
     
     
-    #footer {
-        padding-top: 0px;
-        padding-bottom: 0px;
+        #footer {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+
     }
-}
+    @media screen and (max-width: 480px) {
+        button {
+            font-size: 10px;
+            padding: 10px 25px;
+            border-radius: 15px;
+        }
+    }
 
     </style>
 
@@ -231,25 +301,16 @@
  
 <main id="main">
 
-<style>
-    .meimage {
-            display: block;
-            margin: 0 auto; /* Gambar selalu di tengah */
-            border-radius: 10px;
-        }
-</style>
 
 <section id="home">
     <div class="container">
         <div class="row align-items-center">
-            <!-- Gambar akan berpindah ke atas saat di mobile -->
             <div class="col-md-6 order-md-last order-first text-center">
                 <img  src="image/me.jpg" alt="Foto Profil" class="meimage img-fluid" width="50%">
             </div>
 
-            <!-- Teks akan berada di bawah gambar saat di mobile -->
             <div class="col-md-6 text-white text-start">
-                <h1>Web Developer</h1>
+                <h1>Web Developer | UI/UX Designer</h1>
                 <p><strong>Nama</strong>: Muhammad Ali Asrory</p>
                 <p><strong>Alamat</strong>: Batam</p>
                 <p><strong>Email</strong>: aliasrory123@gmail.com</p>
@@ -337,6 +398,7 @@
                     <div class="project-description">
                         <h4>Website Pengelolaan Stok Bahan Baku</h4>
                         <p>"Aplikasi Pencatatan Stok Bahan Baku Berbasis Web adalah solusi digital yang dirancang untuk membantu bisnis dalam mengelola persediaan bahan baku secara efisien dan terorganisir. Aplikasi ini memungkinkan pengguna untuk mencatat, memantau, dan mengelola stok bahan baku dari mana saja dengan akses internet."</p>
+                        <button onclick="window.open('https://github.com/Geannnnn/PBL-105/tree/main/PBL105')" >Source Code</button>
                     </div>
                 </div>
             </div>
@@ -351,10 +413,19 @@
             
             <div class="col-12" style="text-align: center; margin-top: 10%;">
                 <h3>Send me an Email</h3>
-                <input type="text" placeholder="Your Email">
-                <input type="textarea" placeholder="Your Message">
+                <div class="form-floating">
+                    <input type="email" class="form-control" style="background-color: #eee;" placeholder="Your Email" id="email">
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="textarea" class="form-control"  placeholder="Your Message" id="message">
+                    <label for="message">Your Message</label>
+                </div>
             </div>
-                <button style="width: 15%; margin: 12px;">Send Email</button>
+                <div class="col-3">
+                    <button>Send Email</button>
+                </div>
+                
 
         </div>
     </div>
@@ -404,181 +475,25 @@
             };
         });
     };
+
+        document.addEventListener("DOMContentLoaded", function() {
+        const homeSection = document.getElementById("home");
+
+        function checkScroll() {
+            const sectionPos = homeSection.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if (sectionPos < screenHeight - 100) {
+                homeSection.classList.add("show");
+            }
+        }
+
+        window.addEventListener("scroll", checkScroll);
+        checkScroll(); // Cek saat pertama kali dimuat
+    });
+
+
 </script>
 
-<style>
-
-
-
-span {
-    font-size: 12px;
-}
-
-a {
-    color: #333;
-    font-size: 14px;
-    text-decoration: none;
-    margin: 15px 0;
-}
-
-button {
-    border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background-color: #ffffff;
-    color: #ff4b2b;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-button:focus {
-    outline: none;
-}
-
-button.ghost {
-    background-color: transparent;
-    border-color: #ffffff;
-    color: #ffffff;
-}
-
-button:hover{
-    background-color: #e95f2e;
-    transition: 0.3s;
-    color: #ffffff;
-}
-
-form {
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 50px;
-    height: 100%;
-    text-align: center;
-}
-
-input {
-    background-color: #eee;
-    border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
-    width: 100%;
-    border-radius: 25px;
-}
-
-/* .container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    position: relative;
-    overflow: hidden;
-    width: 768px;
-    max-width: 100%;
-    min-height: 480px;
-    margin-top: 17.5vh;
-} */
-
-
-.container.right-panel-active .sign-in-container {
-    transform: translateX(100%);
-}
-
-.container.right-panel-active .sign-up-container {
-    transform: translateX(100%);
-    opacity: 1;
-    z-index: 5;
-    animation: show 0.6s;
-}
-
-@keyframes show {
-    0%,
-    49.99% {
-        opacity: 0;
-        z-index: 1;
-    }
-
-    50%,
-    100% {
-        opacity: 1;
-        z-index: 5;
-    }
-}
-.overlay-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    transition: transform 0.6s ease-in-out;
-    z-index: 100;
-}
-
-.container.right-panel-active .overlay-container {
-    transform: translateX(-100%);
-}
-
-.overlay {
-    background: #ff416c;
-    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
-    color: #ffffff;
-    position: relative;
-    left: -100%;
-    height: 100%;
-    width: 200%;
-    transform: translateX(0);
-    transition: transform 0.6s ease-in-out;
-}
-
-.container.right-panel-active .overlay {
-    transform: translateX(50%);
-}
-
-.overlay-panel {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    transform: translateX(0);
-    transition: transform 0.6s ease-in-out;
-}
-
-.overlay-left {
-    transform: translateX(-20%);
-}
-
-.container.right-panel-active .overlay-left {
-    transform: translateX(0);
-}
-
-.overlay-right {
-    right: 0;
-    transform: translateX(0);
-}
-
-.container.right-panel-active .overlay-right {
-    transform: translateX(20%);
-}
-
-
-</style>
 
 
