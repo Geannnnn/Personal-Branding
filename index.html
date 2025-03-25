@@ -186,10 +186,7 @@
         margin-top: 10px;
     }
 
-    img {
-        width: 100vw;
-        height: auto;
-    }
+    
     
     #footer {
         padding-top: 0px;
@@ -234,19 +231,29 @@
  
 <main id="main">
 
+<style>
+    .meimage {
+            display: block;
+            margin: 0 auto; /* Gambar selalu di tengah */
+            border-radius: 10px;
+        }
+</style>
 
 <section id="home">
     <div class="container">
-        <div class="row">
-            <div class="col-6 text-white text-start">
+        <div class="row align-items-center">
+            <!-- Gambar akan berpindah ke atas saat di mobile -->
+            <div class="col-md-6 order-md-last order-first text-center">
+                <img  src="image/me.jpg" alt="Foto Profil" class="meimage img-fluid" width="50%">
+            </div>
+
+            <!-- Teks akan berada di bawah gambar saat di mobile -->
+            <div class="col-md-6 text-white text-start">
                 <h1>Web Developer</h1>
                 <p><strong>Nama</strong>: Muhammad Ali Asrory</p>
                 <p><strong>Alamat</strong>: Batam</p>
                 <p><strong>Email</strong>: aliasrory123@gmail.com</p>
                 <p><strong>Tentang Saya</strong>: Web programming adalah keterampilan penting yang akan membuka banyak peluang. Dengan dedikasi dan latihan, kita dapat menguasainya dengan cepat</p>
-            </div>
-            <div class="col-6">
-                <img src="image/me.jpg" alt="" width="50%" height="auto">
             </div>
         </div>
     </div>
@@ -262,19 +269,19 @@
             }
         
             .card:hover {
-                transform: scale(1.05); /* Membesarkan sedikit saat hover */
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             }
         </style>
         <div class="row">
             <div class="card col-6" style="border:none;">
-                <img style="margin:20px; height: 90%; border-radius: 10px;" src="image/skul.jpg" alt="Multistudi Highschool Image">
+                <img style="margin:20px; width: auto; height: 90%; border-radius: 10px;" src="image/skul.jpg" alt="Multistudi Highschool Image">
                 SMK MULTISTUDI HIGHSCHOOL BATAM
                 <p>2021-2024</p>
             </div>
         
             <div class="card col-6" style="border:none;">
-                <img style="margin:20px; height: 90%; border-radius: 10px;" src="image/PoliteknikImage.jpeg" alt="Politeknik Batam Image">
+                <img style="margin:20px; width: auto; height: 90%; border-radius: 10px;" src="image/PoliteknikImage.jpeg" alt="Politeknik Batam Image">
                 POLITEKNIK NEGERI BATAM
                 <p>2024 - Sekarang</p>
             </div>
@@ -283,8 +290,23 @@
 </section>
 
 <section id="project">
-    <div class="container">
-        
+    <div class="container text-white">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h1>Project Saya</h1>
+
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <img src="image/project.jpg" alt="" >
+                </div>
+            
+            </div>
+            <div class="col-12 mt-5">
+                <h4>Website Pengelolaan Stok Bahan Baku</h4>
+                <p>"Aplikasi Pencatatan Stok Bahan Baku Berbasis Web adalah solusi digital yang dirancang untuk membantu bisnis dalam mengelola persediaan bahan baku secara efisien dan terorganisir. Aplikasi ini memungkinkan pengguna untuk mencatat, memantau, dan mengelola stok bahan baku dari mana saja dengan akses internet."</p>
+            </div>
+        </div>
     </div>
 </section>
 
