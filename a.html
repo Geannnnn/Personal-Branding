@@ -1,122 +1,148 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Transitions</title>
+    <title>Skill Set with Elegant Colors</title>
     <style>
         body {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            background-color: #101828; /* Warna dasar */
+            color: #E2E8F0; /* Warna teks yang kontras */
+            padding: 20px;
         }
 
-        .container {
-            text-align: center;
+        .skill-container {
+            max-width: 500px;
+            margin: 20px auto;
         }
 
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: #007bff;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            transition: all 0.5s ease-in-out;
+        .skill {
+            margin-bottom: 20px;
+            opacity: 0; /* Mulai dengan transparan */
+            transform: translateX(-50px); /* Geser ke kiri */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        /* Tambahkan kelas "visible" untuk memunculkan elemen */
+        .skill.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .skill-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #CBD5E1; /* Soft Gray */
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background-color: #1E293B; /* Warna lebih terang dari background */
             border-radius: 10px;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Dari Dalam Keluar (Scale Up) */
-        .scale-up:hover {
-            transform: scale(1.2);
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #475569, #3B82F6); /* Blue-gray ke Blue */
+            width: 0%;
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
-        /* Dari Luar Masuk (Scale Down) */
-        .scale-down:hover {
-            transform: scale(0.8);
+        .progress span {
+            font-size: 14px;
+            font-weight: bold;
+            color: white; /* Warna teks */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        /* Dari Kiri ke Kanan */
-        .left-to-right:hover {
-            transform: translateX(50px);
+        /* Animasi Loading */
+        .progress.animate {
+            animation: loadProgress 2s ease-in-out forwards;
         }
 
-        /* Dari Kanan ke Kiri */
-        .right-to-left:hover {
-            transform: translateX(-50px);
+        /* Animasi untuk setiap skill */
+        .progress.html { animation-delay: 0s; width: 90%; }
+        .progress.css { animation-delay: 0.3s; width: 85%; }
+        .progress.js { animation-delay: 0.6s; width: 80%; }
+        .progress.php { animation-delay: 0.9s; width: 75%; }
+
+        @keyframes loadProgress {
+            from { width: 0%; }
+            to { width: var(--final-width, 100%); }
         }
 
-        /* Dari Atas ke Bawah */
-        .top-to-bottom:hover {
-            transform: translateY(50px);
-        }
-
-        /* Dari Bawah ke Atas */
-        .bottom-to-top:hover {
-            transform: translateY(-50px);
-        }
-
-        /* Opacity (Muncul Perlahan) */
-        .fade:hover {
-            opacity: 0.3;
-        }
-
-        /* Rotate (Putaran) */
-        .rotate:hover {
-            transform: rotate(180deg);
-        }
-
-        /* Kombinasi Semua */
-        .combo:hover {
-            transform: translateX(30px) translateY(-30px) scale(1.2) rotate(45deg);
-            opacity: 0.7;
-            background-color: #ff4b2b;
-        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="box scale-up">Scale Up</div>
+    <div class="skill-container">
+        <div class="skill">
+            <div class="skill-title">HTML</div>
+            <div class="progress-bar">
+                <div class="progress html" style="--final-width: 90%;">
+                    <span>90%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-title">CSS</div>
+            <div class="progress-bar">
+                <div class="progress css" style="--final-width: 85%;">
+                    <span>85%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-title">JavaScript</div>
+            <div class="progress-bar">
+                <div class="progress js" style="--final-width: 80%;">
+                    <span>80%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-title">PHP</div>
+            <div class="progress-bar">
+                <div class="progress php" style="--final-width: 75%;">
+                    <span>75%</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="box scale-down">Scale Down</div>
-    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const skills = document.querySelectorAll(".skill");
 
-    <div class="container">
-        <div class="box left-to-right">Left ➡</div>
-    </div>
+            // Efek Slide-In untuk tiap skill
+            skills.forEach((skill, index) => {
+                setTimeout(() => {
+                    skill.classList.add("visible");
+                }, index * 300); // Delay antar skill agar muncul satu per satu
+            });
 
-    <div class="container">
-        <div class="box right-to-left">⬅ Right</div>
-    </div>
-
-    <div class="container">
-        <div class="box top-to-bottom">Top ⬇</div>
-    </div>
-
-    <div class="container">
-        <div class="box bottom-to-top">⬆ Bottom</div>
-    </div>
-
-    <div class="container">
-        <div class="box fade">Fade</div>
-    </div>
-
-    <div class="container">
-        <div class="box rotate">Rotate</div>
-    </div>
-
-    <div class="container">
-        <div class="box combo">Combo</div>
-    </div>
+            // Efek progress bar berjalan
+            document.querySelectorAll(".progress").forEach(bar => {
+                setTimeout(() => {
+                    bar.classList.add("animate");
+                    bar.querySelector("span").style.opacity = "1"; // Tampilkan angka persen
+                }, 1500);
+            });
+        });
+    </script>
 
 </body>
 </html>

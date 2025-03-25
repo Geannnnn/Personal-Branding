@@ -98,7 +98,15 @@
         text-align: center;
     }
     
-    
+    #contact {
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
     #footer {
         background-color: rgba(26, 24, 22, 0.85);
@@ -107,6 +115,7 @@
         text-align: center;
         padding: 30px 0;
     }
+
 
 
     .navbar {
@@ -149,6 +158,7 @@
         width: 100%;
         border-radius: 25px;
     }   
+
 
     
     .navbar-nav a:hover,
@@ -264,6 +274,62 @@
         }
     }
 
+        .skill {
+            margin-bottom: 20px;
+            opacity: 0; /* Mulai dengan transparan */
+            transform: translateX(-50px); /* Geser ke kiri */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .skill.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background-color: #1E293B;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #475569, #3B82F6); /* Blue-gray ke Blue */
+            width: 0%;
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .progress.animate {
+            animation: loadProgress 2s ease-in-out forwards;
+        }
+
+        .progress span {
+            font-size: 14px;
+            font-weight: bold;
+            color: white; /* Warna teks */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .progress.html { animation-delay: 0s; width: 90%; }
+        .progress.css { animation-delay: 0.3s; width: 85%; }
+        .progress.js { animation-delay: 0.6s; width: 80%; }
+        .progress.php { animation-delay: 0.9s; width: 75%; }
+
+        @keyframes loadProgress {
+            from { width: 0%; }
+            to { width: var(--final-width, 100%); }
+        }
+
     </style>
 
 <body>
@@ -289,6 +355,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="#project" class="nav-link">Project</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#skill" class="nav-link">Skill</a>
                         </li>
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">Contact</a>
@@ -321,6 +390,7 @@
 </section>
 
 <section id="about">
+    <hr>
     <div class="container">
         <h1>Riwayat Pendidikan</h1>
         <hr>
@@ -407,14 +477,84 @@
 </section>
 
 <hr>
-<section id="contact" style="height:100vh; background-color:white;">
+<section id="skill">
     <div class="container">
-        <div class="row">
-            
-            <div class="col-12" style="text-align: center; margin-top: 10%;">
+        <div class="row text-center text-white">
+            <hr>
+            <h1>Skill</h1>
+            <div class="skill col-4">
+                <div class="skill">
+                    <div class="skill-title">PHP</div>
+                    <div class="progress-bar">
+                        <div class="progress PHP" style="--final-width: 83%;">
+                            <span>83%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill col-4">
+                <div class="skill">
+                    <div class="skill-title">CSS</div>
+                    <div class="progress-bar">
+                        <div class="progress css" style="--final-width: 81%;">
+                            <span>81%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="skill">
+                    <div class="skill-title">HTML</div>
+                    <div class="progress-bar">
+                        <div class="progress html" style="--final-width: 90%;">
+                            <span>90%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="skill">
+                    <div class="skill-title">Github</div>
+                    <div class="progress-bar">
+                        <div class="progress js" style="--final-width: 87%;">
+                            <span>87%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="skill">
+                    <div class="skill-title">Python</div>
+                    <div class="progress-bar">
+                        <div class="progress js" style="--final-width: 68%;">
+                            <span>68%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="skill">
+                    <div class="skill-title">Javascript</div>
+                    <div class="progress-bar">
+                        <div class="progress html" style="--final-width: 72%;">
+                            <span>72%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <div class="container">
+        <div class="row text-center">
+                        
+            <hr>
+            <div class="col-12 text-center contact-content">
                 <h3>Send me an Email</h3>
                 <div class="form-floating">
-                    <input type="email" class="form-control" style="background-color: #eee;" placeholder="Your Email" id="email">
+                    <input type="email" class="form-control" placeholder="Your Email" id="email">
                     <label for="email">Your Email</label>
                 </div>
                 <div class="form-floating">
@@ -425,11 +565,10 @@
                 <div class="col-3">
                     <button>Send Email</button>
                 </div>
-                
-
         </div>
     </div>
 </section>
+
 <footer id="footer">
     <a name="github1"  style="color: inherit;" href="https://github.com/Geannnnn"><i width="" class="fa-brands fa-github"></i></a>
     <a style="color: inherit;" href="https://www.instagram.com/m.alias21/"><i class="fa-brands fa-instagram"></i></a>
@@ -479,19 +618,38 @@
         document.addEventListener("DOMContentLoaded", function() {
         const homeSection = document.getElementById("home");
 
-        function checkScroll() {
-            const sectionPos = homeSection.getBoundingClientRect().top;
-            const screenHeight = window.innerHeight;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    homeSection.classList.add("show");
+                    homeSection.classList.remove("hide");
+                } else {
+                    homeSection.classList.remove("show");
+                    homeSection.classList.add("hide"); 
+                }
+            });
+        }, { threshold: 0.2 }); 
 
-            if (sectionPos < screenHeight - 100) {
-                homeSection.classList.add("show");
-            }
-        }
-
-        window.addEventListener("scroll", checkScroll);
-        checkScroll(); // Cek saat pertama kali dimuat
+        observer.observe(homeSection);
     });
 
+
+    document.addEventListener("DOMContentLoaded", function () {
+            const skills = document.querySelectorAll(".skill");
+
+            skills.forEach((skill, index) => {
+                setTimeout(() => {
+                    skill.classList.add("visible");
+                }, index * 300); 
+            });
+
+            document.querySelectorAll(".progress").forEach(bar => {
+                setTimeout(() => {
+                    bar.classList.add("animate");
+                    bar.querySelector("span").style.opacity = "1"; 
+                }, 1500);
+            });
+        });
 
 </script>
 
